@@ -43,10 +43,10 @@ function Collaborate() {
   const [timeLeft, setTimeLeft] = useState(30);
 
   const sendMatchingRequest = () => {
+    // if (isMatching) {
+    //   return ;
+    // }
     setTimeLeft(30);
-    if (isMatching) {
-      return ;
-    }
     setIsMatching(true);
     const apiUrl = '/collaborate/api/match'; // Replace with your actual URL
     const timeOfReq = new Date().getTime();
@@ -55,7 +55,7 @@ function Collaborate() {
     const data = { userObj, complexity, timeOfReq };
     console.log('sending matching request from frontend')
 
-
+    setMatchedUsername('');
     // Use Axios to send the POST request
     axios.post(apiUrl, data)
         .then(response => { 
